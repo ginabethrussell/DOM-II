@@ -123,6 +123,11 @@ destBtn.forEach(btn => {
     })
 })
 // Demonstrate .preventDefault()
+navElements.forEach(link => {
+    link.addEventListener('click', (e) => {
+    e.preventDefault();
+    });
+});
 navLink.addEventListener('click', (e) => {
     e.preventDefault();
     alert('Not hyperlinking to Lambda School');
