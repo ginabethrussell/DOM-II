@@ -16,7 +16,16 @@ blocks.forEach(block => {
         console.log(e);
         blockContainer.prepend(e.target);
         let x = 0;
+        let mousedown = true;
         const stopId = setInterval(()=>{
+            // moves travelers to the right
+            // unless mouseup or x > 850 px
+            document.body.addEventListener('mouseup', () => {
+                mousedown = false;
+            });
+            if (mousedown == false){
+                clearInterval(stopId);
+            }
             if (x > 850){
                 clearInterval(stopId);
             }
