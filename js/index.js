@@ -82,19 +82,14 @@ document.addEventListener('keyup', (e)=>{
 // 10. mousedown event on images rotates img clockwise 360deg
 images.forEach(image => {
     image.addEventListener('mousedown', (e)=>{
-        e.target.style.transform = 'rotate(360deg)';
-        e.target.style.transition = '2s all ease';
-        e.target.style.zIndex = '0';
+        // Used gsap animation for rotation and reset
+        gsap.to(e.target, { duration: 1, rotate: 360});
+        TweenLite.set(e.target, {clearProps:"transform"});
         mainNav.style.zIndex = '99';
     })
 })
-// 11. transition end on images rotates img back counterclockwise 360deg
-images.forEach(image => {
-    image.addEventListener('transitionend', (e)=>{
-        e.target.style.removeProperty('transform');
-    })
-})
-// 12. keypress on document, changes border color
+
+// 11. keypress on document, changes border color
 document.addEventListener('keypress', (e)=> {
     console.log(e.code);
     if(e.code == 'KeyB'){
@@ -112,7 +107,6 @@ destChoice.forEach(section => {
     section.addEventListener('click', (e) => {
         e.target.style.color = '#14a2b8';
         console.log("destination clicked")
-
     })
 })
 destBtn.forEach(btn => {
@@ -132,3 +126,4 @@ navLink.addEventListener('click', (e) => {
     e.preventDefault();
     alert('Not hyperlinking to Lambda School');
 })
+
