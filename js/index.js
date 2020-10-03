@@ -20,7 +20,7 @@ navLink.href = "https://lambdaschool.com/";
 // Add 10 Different Event Listeners for MVP
 
 // 1. load event --> Welcome user to site
-window.addEventListener('load', (e) => alert("Welcome to FunBus Travel!"));
+window.addEventListener('load', () => alert("Welcome to FunBus Travel!"));
 
 // 2. beforeunload event --> User alert to confirm they want to leave the page
 window.addEventListener('beforeunload', (e) => {
@@ -30,7 +30,7 @@ window.addEventListener('beforeunload', (e) => {
 });
 
 // 3. scroll event --> fill in color of header
-window.addEventListener('scroll', (e)=> {
+window.addEventListener('scroll', ()=> {
     console.log(window.scrollY);
     mainNav.style.backgroundColor = "#ffebcd";   
 });

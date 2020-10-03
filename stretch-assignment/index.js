@@ -24,15 +24,30 @@ blocks.forEach(block => {
                 mousedown = false;
             });
             if (mousedown == false){
-                clearInterval(stopId);
+                clearInterval(stopId); 
+                console.log('here', x);
+                // moves travelers back to left
+                // until back to start
+                setTimeout(()=>{
+                    const reverseStopId = setInterval(()=> {
+                       console.log(x);
+                        if (x <= 0){
+                            clearInterval(reverseStopId);
+                            setTimeout(()=>{
+                                e.target.style.transform = `translateX(0)`;
+                            }, 20);
+                        }
+                        x = x - 5;
+                        e.target.style.transform = `translateX(${x}px)`;
+                    }, 20);
+                }, 20);
             }
-            if (x > 850){
+            if (x > 1000){
                 clearInterval(stopId);
             }
             x = x + 5;   
             e.target.style.transform = `translateX(${x}px)`;   
         }, 10);
-      
     })
 })
 
